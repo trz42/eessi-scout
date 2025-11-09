@@ -7,5 +7,6 @@ in the EESSI stack, analyzes dependencies, and verifies license compatibility.
 This module provides initialization logic for the package.
 """
 
+
 def hello() -> str:
     return "Hello, EESSI-Scout!"

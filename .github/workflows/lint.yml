@@ -32,7 +32,7 @@ jobs:
       # define options to commands via pyproject.toml
       - name: Code formatting & lint
         run: |
-          black --check .
+          black --check --diff .
           flake8
           mypy
 
