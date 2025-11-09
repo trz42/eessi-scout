@@ -5,5 +5,5 @@
 from eessi_scout import hello
 
 
-def test_hello():
+def test_hello() -> None:
     assert hello() == "Hello, EESSI-Scout!"
