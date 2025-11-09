@@ -1,3 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# Copyright (C) 2025 EESSI-Scout contributors
+#
+# EESSI-Scout automates identification of missing or outdated software packages
+# in the EESSI stack, analyzes dependencies, and verifies license compatibility.
+# This workflow runs linting and static analysis checks.
+
 default: true
 MD013: false  # line length
 MD033: false  # inline HTML

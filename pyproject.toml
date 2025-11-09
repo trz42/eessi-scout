@@ -1,3 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# Copyright (C) 2025 EESSI-Scout contributors
+#
+# EESSI-Scout automates identification of missing or outdated software packages
+# in the EESSI stack, analyzes dependencies, and verifies license compatibility.
+# This file defines the project metadata, dependencies, and tool configurations.
+
 [project]
 name = "EESSI-Scout"
 version = "0.1.0"
@@ -18,6 +25,7 @@ dev = [
     "flake8-black==0.3.6",
     "pytest==8.3.3",
     "pytest-cov==5.0.0",
+    "coverage==7.6.9",
     "mypy==1.11.1",
     "pylint==3.3.1",
     "mdformat==0.7.19",
@@ -65,13 +73,14 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["eessi_scout"]
+source = ["src"]
+relative_files = true
 omit = [
   "tests/*",
 ]
 
 [tool.coverage.report]
-skip_covered = true
+skip_covered = false
 show_missing = true
 fail_under = 80
 

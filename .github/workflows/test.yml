@@ -1,9 +1,10 @@
-# This file is part of the EESSI-Scout, see https://github.com/trz42/eessi-scout
+# SPDX-License-Identifier: GPL-2.0-only
+# Copyright (C) 2025 EESSI-Scout contributors
 #
-# author: Thomas Roeblitz (@trz42)
-#
-# license: GPLv2
-#
+# EESSI-Scout automates identification of missing or outdated software packages
+# in the EESSI stack, analyzes dependencies, and verifies license compatibility.
+# This workflow runs linting and static analysis checks.
+
 name: Tests & Coverage
 
 on: [push, pull_request, workflow_dispatch]
