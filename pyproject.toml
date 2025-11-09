@@ -87,7 +87,7 @@ show_missing = true
 fail_under = 80
 
 [tool.codespell]
-skip = "*.png,*.jpg,*.svg,*.gif"
+skip = ".git,*.png,*.jpg,*.svg,*.gif,.mypy_cache"
 ignore-words-list = "teh"
 check-filenames = true
 check-hidden = false
