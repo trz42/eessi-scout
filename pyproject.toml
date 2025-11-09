@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# Copyright (C) 2025 EESSI-Scout contributors
+#
+# EESSI-Scout automates identification of missing or outdated software packages
+# in the EESSI stack, analyzes dependencies, and verifies license compatibility.
+# This file defines the project metadata, dependencies, and tool configurations.
+
+[project]
+name = "EESSI-Scout"
+version = "0.1.0"
+description = "EESSI-Scout automates the process of identifying software packages missing from the EESSI stack or ones that may be required to be renewed. It analyzes dependencies, verifies license compatibility, and generates pull requests to extend the EESSI software ecosystem — keeping your stack complete, compliant, and up to date."
+authors = [{ name = "Thomas Roeblitz", email = "thomas.roblitz@uib.no" }]
+license = { text = "GPL-2.0-only" }
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "networkx==3.4.2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black==24.10.0",
+    "flake8==7.1.1",
+    "flake8-black==0.3.6",
+    "pytest==8.3.3",
+    "pytest-cov==5.0.0",
+    "coverage==7.6.9",
+    "mypy==1.11.1",
+    "pylint==3.3.1",
+    "mdformat==0.7.19",
+    "codespell==2.3.0"
+]
+
+# ----------------------------
+# Tool configuration sections
+# ----------------------------
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.mypy_cache
+  | \.pytest_cache
+  | build
+  | dist
+)/
+'''
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203", "W503"]  # compatible with Black
+select = ["E", "F", "W", "BLK"]   # include Black plugin codes
+exclude = [".git", "__pycache__", "build", "dist"]
+max-complexity = 10
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+packages = ["eessi_scout", "tests"]
+warn_unused_configs = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+strict_equality = true
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "-ra -q --cov=src --cov-report=term-missing --cov-report=xml"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+relative_files = true
+omit = [
+  "tests/*",
+]
+
+[tool.coverage.report]
+skip_covered = false
+show_missing = true
+fail_under = 80
+
+[tool.codespell]
+skip = ".git,*.png,*.jpg,*.svg,*.gif,.mypy_cache"
+ignore-words-list = "teh"
+check-filenames = true
+check-hidden = false

@@ -1,4 +1,8 @@
 # EESSI-Scout
+
+[![CI](https://github.com/trz42/EESSI-Scout/actions/workflows/ci.yml/badge.svg)](https://github.com/trz42/EESSI-Scout/actions/workflows/ci.yml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/trz42/EESSI-Scout/badge)](https://securityscorecards.dev/viewer/?uri=github.com/trz42/EESSI-Scout)
+
 EESSI-Scout automates the process of identifying software packages missing
 from the EESSI stack or ones that may be required to be renewed. It analyzes
 dependencies, verifies license compatibility, and generates pull requests to
